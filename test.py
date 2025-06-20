@@ -4,7 +4,7 @@ import sys
 pygame.init()
 
 # Set up screen
-screen = pygame.display.set_mode((640, 480))
+screen = pygame.display.set_mode((900, 700))
 pygame.display.set_caption("FPS Monitor Example")
 
 # Set up clock
