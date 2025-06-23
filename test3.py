@@ -2,7 +2,7 @@ import pygame
 class test:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((400, 300))
+        self.screen = pygame.display.set_mode((1000, 600))
         pygame.display.set_caption("Test Window")
         self.clock = pygame.time.Clock()
         self.running = True
@@ -18,5 +18,5 @@ class test:
             self.clock.tick(60)
 
         pygame.quit()
-
+        
 test().run()
