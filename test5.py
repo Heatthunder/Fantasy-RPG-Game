@@ -43,7 +43,7 @@ while True:
     rectA = (30,60,70,90)
     screen.blit(bob, bob_pos)
 
-    
+    # pygame.Surface.set_colorkey (0,0,0) 
 
     # sally = pygame.image.load("assets\sr5z6cb376ca53aws3.png")
     # sallyR = sally.get_rect()
