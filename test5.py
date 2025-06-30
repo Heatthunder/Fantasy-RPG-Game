@@ -9,6 +9,7 @@ clock = pygame.time.Clock()
 bob_stats = {"health":100}
 
 player_pos = [250, 150]
+map_cords = [250, 150]
 
 while True:
     # Process player inputs.
@@ -22,20 +23,26 @@ while True:
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
-            player_pos[0] -= 10 
+            player_pos[0] -= 5 
         if keys[pygame.K_s]:
-            player_pos[0] += 10 
+            player_pos[0] += 5 
         if keys[pygame.K_a]:
-            player_pos[1] -= 10 
+            player_pos[1] -= 5 
         if keys[pygame.K_d]:
-            player_pos[1] += 10 
+            player_pos[1] += 5 
         if keys[pygame.K_SPACE]:
             bob_stats["health"] -= 20
+            print(bob_stats)
 
     screen.fill("black")  # Fill the display with a solid color
 
     # Render the graphics here.
     # ...
+
+    map = pygame.image.load("assets\grasslands-concept-pixilart.png")
+    mapR = map.get_rect()
+    # rectB = 
+    screen.blit(map, map_cords)
 
     bob = pygame.image.load("assets\sr5z75c92c220faws3.png")
     bobR = bob.get_rect()
