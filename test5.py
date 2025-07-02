@@ -6,10 +6,10 @@ screen = pygame.display.set_mode((500,300))
 
 clock = pygame.time.Clock()
 
-bob_stats = {"health":100}
+bob_stats = {"health":100, "damage":1}
 
 player_pos = [250, 150]
-map_cords = [250, 150]
+map_cords = [0, 0]
 
 while True:
     # Process player inputs.
@@ -31,31 +31,40 @@ while True:
         if keys[pygame.K_d]:
             player_pos[1] += 5 
         if keys[pygame.K_SPACE]:
-            bob_stats["health"] -= 20
+            bob_stats["health"] -= 10
             print(bob_stats)
+        if bob_stats["health"] == 0:
+            pygame.quit()
+            raise SystemExit
 
-    screen.fill("black")  # Fill the display with a solid color
+       # Fill the display with a solid color
 
     # Render the graphics here.
     # ...
 
     map = pygame.image.load("assets\grasslands-concept-pixilart.png")
-    mapR = map.get_rect()
+    mapB = pygame.transform.scale(map, (500, 300))
     # rectB = 
-    screen.blit(map, map_cords)
+    screen.blit(mapB, map_cords)
+
+    
 
     bob = pygame.image.load("assets\sr5z75c92c220faws3.png")
-    bobR = bob.get_rect()
-    bob_pos = (player_pos[1],player_pos[0], player_pos[1]+ 32, player_pos[0]+ 33)
+    # bob.set_colorkey ((0,0,0))
+    Bob = pygame.transform.scale(bob, (70, 60))
+    bob_box = pygame.Rect(player_pos[1],player_pos[0], 70, 60)
     rectA = (30,60,70,90)
-    screen.blit(bob, bob_pos)
+    screen.blit(Bob, bob_box)
 
-    # pygame.Surface.set_colorkey (0,0,0) 
-
-    # sally = pygame.image.load("assets\sr5z6cb376ca53aws3.png")
-    # sallyR = sally.get_rect()
-    # screen.blit(sally, sallyR)
+    sally = pygame.image.load("assets\sr5z6cb376ca53aws3.png")
+    sally_box = sally.get_rect()
+    sally_box.move_ip(100, 90)
+    screen.blit(sally, sally_box)
     
+    if bob_box.colliderect(sally_box):
+        pygame.quit()
+        raise SystemExit
+
     pygame.display.flip()  # Refresh on-screen display
     clock.tick(60)         # wait until next frame (at 60 FPS)
 
