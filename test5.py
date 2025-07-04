@@ -9,6 +9,7 @@ clock = pygame.time.Clock()
 bob_stats = {"health":100, "damage":1}
 
 player_pos = [250, 150]
+enemyA_pos = [170, 70]
 map_cords = [0, 0]
 
 while True:
@@ -45,9 +46,7 @@ while True:
     map = pygame.image.load("assets\grasslands-concept-pixilart.png")
     mapB = pygame.transform.scale(map, (500, 300))
     # rectB = 
-    screen.blit(mapB, map_cords)
-
-    
+    screen.blit(mapB, map_cords)    
 
     bob = pygame.image.load("assets\sr5z75c92c220faws3.png")
     # bob.set_colorkey ((0,0,0))
@@ -55,6 +54,10 @@ while True:
     bob_box = pygame.Rect(player_pos[1],player_pos[0], 70, 60)
     rectA = (30,60,70,90)
     screen.blit(Bob, bob_box)
+
+    weapon2 = pygame.image.load("assets\sr5zb291859ba3aws3.png")
+    weapon2B = bob_box.move(50,30)
+    screen.blit(weapon2, weapon2B)
 
     sally = pygame.image.load("assets\sr5z6cb376ca53aws3.png")
     sally_box = sally.get_rect()
@@ -64,6 +67,15 @@ while True:
     if bob_box.colliderect(sally_box):
         pygame.quit()
         raise SystemExit
+    
+    enemyA = pygame.image.load("assets\sr5z70b2dbb43caws3.png")
+    enemyA_box = pygame.Rect(enemyA_pos, (70, 60))
+    EnemyA = pygame.transform.scale(enemyA, (70, 60))
+    screen.blit(EnemyA, enemyA_box)
+
+    weapon1 = pygame.image.load("assets\sr5z9a455fd099aws3.png")
+    weapon1B = enemyA_box.move(50, 30)
+    screen.blit(weapon1, weapon1B)
 
     pygame.display.flip()  # Refresh on-screen display
     clock.tick(60)         # wait until next frame (at 60 FPS)
