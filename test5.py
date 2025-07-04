@@ -1,4 +1,5 @@
 import pygame
+import random
 
 pygame.init()
 
@@ -72,6 +73,16 @@ while True:
     enemyA_box = pygame.Rect(enemyA_pos, (70, 60))
     EnemyA = pygame.transform.scale(enemyA, (70, 60))
     screen.blit(EnemyA, enemyA_box)
+
+    enemyA_D = [player_pos[0] - enemyA_pos[0], player_pos[1]- enemyA_pos[1]] #enemy direction logic, etc
+    if enemyA_D[1] > 0:
+        enemyA_pos[1] += 1
+    if enemyA_D[0] < 0:
+        enemyA_pos[0] -= 1
+    if enemyA_pos[0] > 0:
+        enemyA_pos[0] += 1
+    if enemyA_D[1] < 0:
+        enemyA_pos[1] -= 1
 
     weapon1 = pygame.image.load("assets\sr5z9a455fd099aws3.png")
     weapon1B = enemyA_box.move(50, 30)
