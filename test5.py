@@ -74,7 +74,20 @@ while True:
     EnemyA = pygame.transform.scale(enemyA, (70, 60))
     screen.blit(EnemyA, enemyA_box)
 
-    enemyA_D = [player_pos[1] - enemyA_pos[0], player_pos[0]- enemyA_pos[1]] #enemy direction logic, etc
+    enemyA_D = [player_pos[1] - enemyA_pos[0], player_pos[0]- enemyA_pos[1]] # enemy direction logic, etc
+    # if player_pos[0] < enemyA_pos[0]:
+    #     enemyA_D = -1
+    # elif player_pos[0] > enemyA_pos[0]:
+    #     enemyA_D = 1
+    # elif player_pos[0] == enemyA_pos[0]:
+    #     enemyA_D = 0
+    # if player_pos[1] > enemyA_pos[1]:
+    #     enemyA_D = -1
+    # elif player_pos[1] > enemyA_pos[1]:
+    #     enemyA_D = 1
+    # elif player_pos[1] == enemyA_pos[1]:
+    #     enemyA_D = 0
+    
     if enemyA_D[1] > 0:
         enemyA_pos[1] += 1
     if enemyA_D[1] < 0:
