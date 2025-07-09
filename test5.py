@@ -80,7 +80,16 @@ while True:
     # ...
 
     
+    # bob = pygame.image.load("assets\sr5z75c92c220faws3.png") # currently unneeded
+    # # bob.set_colorkey ((0,0,0))
+    # Bob = pygame.transform.scale(bob, (70, 60))
+    # bob_box = pygame.Rect(player_pos[0],player_pos[1], 70, 60)
+    # rectA = (30,60,70,90)
+    # screen.blit(Bob, bob_box)
 
+    # weapon2 = pygame.image.load("assets\sr5zb291859ba3aws3.png")
+    # weapon2B = bob_box.move(50,30)
+    # screen.blit(weapon2, weapon2B)
 
 
     sally = pygame.image.load("assets\sr5z6cb376ca53aws3.png")
