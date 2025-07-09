@@ -25,13 +25,13 @@ while True:
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_w]:
-            player_pos[0] -= 5 
-        if keys[pygame.K_s]:
-            player_pos[0] += 5 
-        if keys[pygame.K_a]:
             player_pos[1] -= 5 
-        if keys[pygame.K_d]:
+        if keys[pygame.K_s]:
             player_pos[1] += 5 
+        if keys[pygame.K_a]:
+            player_pos[0] -= 5 
+        if keys[pygame.K_d]:
+            player_pos[0] += 5 
         if keys[pygame.K_SPACE]:
             bob_stats["health"] -= 10
             print(bob_stats)
@@ -52,7 +52,7 @@ while True:
     bob = pygame.image.load("assets\sr5z75c92c220faws3.png")
     # bob.set_colorkey ((0,0,0))
     Bob = pygame.transform.scale(bob, (70, 60))
-    bob_box = pygame.Rect(player_pos[1],player_pos[0], 70, 60)
+    bob_box = pygame.Rect(player_pos[0],player_pos[1], 70, 60)
     rectA = (30,60,70,90)
     screen.blit(Bob, bob_box)
 
@@ -74,7 +74,7 @@ while True:
     EnemyA = pygame.transform.scale(enemyA, (70, 60))
     screen.blit(EnemyA, enemyA_box)
 
-    enemyA_D = [player_pos[1] - enemyA_pos[0], player_pos[0]- enemyA_pos[1]] # enemy direction logic, etc
+    enemyA_D = [player_pos[0] - enemyA_pos[0], player_pos[1]- enemyA_pos[1]] # enemy direction logic, etc
     # enemyA_D = [0,0] #enemyA_D unneeded?
     # if player_pos[0] < enemyA_pos[0]:
     #     enemyA_D[0] = -1
