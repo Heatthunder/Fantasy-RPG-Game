@@ -8,7 +8,7 @@ screen = pygame.display.set_mode((500,300))
 clock = pygame.time.Clock()
 
 player_stats = {"health":100, "damage":1}
-enemyA_stats = {"healther": 50, "damage":5}
+enemyA_stats = {"health": 50, "damage":5}
 
 player_pos = [250, 150]
 enemyA_pos = [170, 70]
